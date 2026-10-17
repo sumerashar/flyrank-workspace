@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A practical plan for adding the next case study to an AI portfolio.">
+  <title>My Next Case Study | AI Portfolio</title>
+
+  <style>
+    :root {
+      --dark: #17251f;
+      --green: #315c49;
+      --cream: #f6f4ed;
+      --white: #ffffff;
+      --muted: #68746d;
+      --border: #e1e5dd;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 8%;
+      background: var(--white);
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .tag {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .hero {
+      background: var(--dark);
+      color: var(--white);
+      padding: 100px 8%;
+    }
+
+    .eyebrow {
+      color: #a7cbb2;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.08;
+      margin: 22px 0;
+      max-width: 850px;
+    }
+
+    h1 em {
+      color: #a7cbb2;
+      font-family: Georgia, serif;
+    }
+
+    .hero p.description {
+      max-width: 650px;
+      color: #d5ded7;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--green);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 7px;
+      font-weight: bold;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .button-light {
+      background: var(--white);
+      color: var(--dark);
+    }
+
+    .container {
+      width: min(1080px, 84%);
+      margin: auto;
+    }
+
+    section.content {
+      padding: 75px 0;
+    }
+
+    .section-label {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      font-size: clamp(29px, 4vw, 43px);
+      line-height: 1.2;
+      margin: 12px 0 22px;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 25px;
+    }
+
+    .number {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .project {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 35px;
+      margin-top: 25px;
+    }
+
+    .status {
+      display: inline-block;
+      color: #315c49;
+      background: #e7f1e9;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .project-grid h3 {
+      font-size: 14px;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .notice {
+      margin-top: 25px;
+      padding: 18px;
+      background: var(--cream);
+      border-radius: 8px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .reminder {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .reminder .button {
+      margin: 18px 0;
+    }
+
+    .check {
+      display: flex;
+      align-items: start;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .check input {
+      margin-top: 7px;
+      width: 18px;
+      height: 18px;
+    }
+
+    #reminderStatus {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .context-list {
+      display: grid;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .context-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .context-item strong {
+      color: var(--green);
+    }
+
+    .closing {
+      text-align: center;
+      background: var(--dark);
+      color: var(--white);
+      padding: 65px 8%;
+    }
+
+    .closing p {
+      margin: 15px 0 25px;
+      color: #d5ded7;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 25px 8%;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding: 70px 8%;
+      }
+
+      .steps,
+      .project-grid,
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .project {
+        padding: 23px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="logo">✳ PORTFOLIO PRACTICE</div>
+    <div class="tag">GENERAL AI FLUENCY · IMPACT PROJECT</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">A SYSTEM FOR CONSISTENT GROWTH</div>
+
+      <h1>Make the next<br><em>case study</em> happen.</h1>
+
+      <p class="description">
+        A repeatable plan for turning real work into portfolio evidence
+        without rebuilding the process from scratch every time.
+      </p>
+
+      <a href="#process" class="button button-light">
+        Explore my plan ↓
+      </a>
+    </section>
+
+    <section class="content" id="process">
+      <div class="container">
+        <div class="section-label">01 / THE ROUTINE</div>
+        <h2>How I'll add my next case study</h2>
+
+        <p class="muted">
+          Every case study will follow the same three-beat structure:
+          problem, what I did, and what came of it.
+        </p>
+
+        <div class="steps">
+          <article class="card">
+            <div class="number">STEP 01</div>
+            <h3>The problem</h3>
+            <p>
+              Explain the real problem, who it affects, and why it matters.
+              Keep the context specific and easy to understand.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">STEP 02</div>
+            <h3>What I did</h3>
+            <p>
+              Describe my contribution, tools, technical decisions,
+              implementation, and supporting links or screenshots.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">STEP 03</div>
+            <h3>What came of it</h3>
+            <p>
+              Report measured results and lessons learned. If impact
+              has not been measured, I will say so honestly.
+            </p>
+          </article>
+        </div>
+
+        <div class="notice">
+          <strong>My publishing checklist</strong>
+          <p>
+            Select a completed project → gather evidence → write the
+            three sections → verify claims → publish → test the link.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" style="background:#eeeee5">
+      <div class="container">
+        <div class="section-label">02 / MY NEXT CASE STUDY</div>
+
+        <article class="project">
+          <span class="status">PLANNED PROJECT</span>
+
+          <h2>AI-Powered Search Performance Analysis</h2>
+
+          <p class="muted">
+            A planned case study exploring how machine learning can
+            support the analysis of search performance and help
+            prioritize pages for further review.
+          </p>
+
+          <div class="project-grid">
+            <div>
+              <h3>The problem</h3>
+              <p>
+                Search-performance data can be difficult to turn into
+                clear, evidence-based priorities.
+              </p>
+            </div>
+
+            <div>
+              <h3>What I'll do</h3>
+              <p>
+                Explore the data, establish a baseline, evaluate the
+                approach with an appropriate validation split, and
+                document limitations.
+              </p>
+            </div>
+
+            <div>
+              <h3>What came of it</h3>
+              <p>
+                To be completed after the analysis. I will report
+                measured results and lessons only after verifying them.
+              </p>
+            </div>
+          </div>
+
+          <div class="notice">
+            <strong>Evidence before claims.</strong>
+            <p>
+              This project is planned. No model results or business
+              impact are claimed before the work is completed.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container two-column">
+        <div>
+          <div class="section-label">03 / BUILD THE HABIT</div>
+
+          <h2>Set a reminder.<br>Keep the context.</h2>
+
+          <p class="muted">
+            A simple reminder helps me return to my portfolio.
+            Preserving the existing project context makes future
+            updates easier and more consistent.
+          </p>
+        </div>
+
+        <div class="reminder">
+          <h3>Portfolio update session</h3>
+
+          <p>
+            Suggested date: <strong>24 October 2026</strong>
+          </p>
+
+          <p class="muted">
+            Suggested time: 10:00 AM Pakistan time.
+            Review the details before saving.
+          </p>
+
+          <a
+            class="button"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Add%20my%20next%20portfolio%20case%20study&dates=20261024T050000Z/20261024T053000Z&details=Write%20the%20problem%2C%20what%20I%20did%2C%20and%20what%20came%20of%20it.%20Gather%20evidence%2C%20check%20claims%2C%20publish%20and%20test%20the%20link.&ctz=Asia%2FKarachi">
+            Add reminder to Google Calendar ↗
+          </a>
+
+          <div class="check">
+            <input type="checkbox" id="reminderDone">
+            <label for="reminderDone">
+              I have saved this reminder in my calendar.
+            </label>
+          </div>
+
+          <p id="reminderStatus" aria-live="polite">
+            Tick this only after saving the event.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" style="background:#eeeee5">
+      <div class="container">
+        <div class="section-label">04 / PRESERVE THE BUILD CONTEXT</div>
+
+        <h2>Keep the Claude Project.<br>Continue, don't restart.</h2>
+
+        <p class="muted">
+          My plan is to preserve the existing Claude Project that
+          contains my working context, tools, and preferences.
+        </p>
+
+        <div class="context-list">
+          <div class="context-item">
+            <strong>A.</strong>
+            <p>
+              Keep the existing Claude Project available for future work.
+            </p>
+          </div>
+
+          <div class="context-item">
+            <strong>B.</strong>
+            <p>
+              Provide the next project's artifact, evidence, and
+              three-beat outline when continuing the case study.
+            </p>
+          </div>
+
+          <div class="context-item">
+            <strong>C.</strong>
+            <p>
+              Review AI-generated drafts, verify factual claims, and
+              publish only after checking the final result.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="eyebrow">THE NEXT STEP IS SMALL</div>
+
+      <h2>One real project.<br>One honest case study.</h2>
+
+      <p>Build the habit once. Reuse it every time.</p>
+
+      <a href="#process" class="button button-light">
+        Review the process ↑
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <span>PORTFOLIO PRACTICE</span>
+    <span>Personal workflow · Update as work evolves</span>
+  </footer>
+
+  <script>
+    const reminderCheckbox = document.getElementById("reminderDone");
+    const reminderStatus = document.getElementById("reminderStatus");
+
+    reminderCheckbox.addEventListener("change", function () {
+      if (this.checked) {
+        reminderStatus.textContent =
+          "Marked as saved by you. Make sure the calendar event really exists.";
+      } else {
+        reminderStatus.textContent =
+          "Reminder not confirmed. Save the event in your calendar first.";
+      }
+    });
+  </script>
+
+</body>
+</html>
